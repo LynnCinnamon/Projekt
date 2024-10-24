@@ -1,9 +1,6 @@
 
-
 from data_sources.open_weather import OpenWeatherDataSource
-from data_sources.static_html import StaticHtmlDataSource
 from generators.open_weather_generator import OpenWeatherGenerator
-from generators.static_html_generator import StaticHtmlGenerator
 
 
 def main():

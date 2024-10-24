@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Any, Literal
 import requests
 from data_sources.data_source_interface import DataSourceInterface
 
