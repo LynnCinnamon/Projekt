@@ -13,14 +13,14 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    background-color: aquamarine;
+    background-color: #ffffff;
     padding: 12px;
     height: 10%;
     position: relative;
 }
 .weather-widget {
     text-align: right;
-  }
+}
 
 .weather-widget p {
     margin: 0;
@@ -36,11 +36,11 @@ main {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    background-color: darkgreen;
+    background-color: #ffffff;
 }
 aside {
     width: 20vw;
-    background-color: blueviolet;
+    background-color: #ffffff;
     height: 100%;
     display: flex;
     align-items: flex-start;
@@ -50,7 +50,7 @@ aside {
 
 }
 footer {
-    background-color: #0069b4;
+    background-color: #ffffff;
     padding: 10px 0;
     height: 10%;
     position: relative;
@@ -98,12 +98,10 @@ footer {
         width: 100%;
         height: auto;
     }
-
     header {
         flex-direction: column;
         height: auto;
     }
-
     .logo {
         margin: 0 auto;
         left: 0;
