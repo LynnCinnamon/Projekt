@@ -1,0 +1,111 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: aquamarine;
+    padding: 12px;
+    height: 10%;
+    position: relative;
+}
+.weather-widget {
+    text-align: right;
+  }
+
+.weather-widget p {
+    margin: 0;
+}
+.logo {
+    position: absolute;
+    margin: 15px;
+    left: 0px;
+    width: 80px;
+    height: 80px;
+}
+main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: darkgreen;
+}
+aside {
+    width: 20vw;
+    background-color: blueviolet;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 12px;
+
+
+}
+footer {
+    background-color: #0069b4;
+    padding: 10px 0;
+    height: 10%;
+    position: relative;
+    overflow: hidden;
+}
+.partner-banderole {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+.partner-banderole img {
+    height: 50px;
+    margin: 0 20px;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.temp{
+
+}
+.weather{
+
+}
+.temp_range{
+
+}
+.weather_widget{
+
+}
+.rain{
+
+}
+.snow {
+
+}
+@media (max-width: 768px) {
+    aside {
+        width: 100%;
+        height: auto;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .logo {
+        margin: 0 auto;
+        left: 0;
+    }
+}
