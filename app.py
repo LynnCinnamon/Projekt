@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, redirect, url_for, flash
+from flask import Flask, jsonify, request, render_template, redirect, send_from_directory, url_for, flash
 from flask_socketio import SocketIO, emit
 from settings import Settings
 import asyncio
@@ -39,9 +39,13 @@ def update_settings():
 def admin_panel():
     return render_template('admin.html')
 
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
+
+@app.route('/assets/<path:path>')
+def send_report(path):
+    return send_from_directory('assets', path)
 
 @app.route('/start', methods=['GET'])
 def start_info_board():
