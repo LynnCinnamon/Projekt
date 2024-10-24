@@ -1,8 +1,4 @@
 import asyncio
-
-from data_sources.open_weather import OpenWeatherDataSource
-from generators.open_weather_generator import OpenWeatherGenerator
-from manage_data.api_data import weather_api_data
 class Settings:
     def __init__(self,socketio):
         self.socketio = socketio
@@ -11,10 +7,9 @@ class Settings:
         self.mode = 'sequential'
         self.logo = 'path/to/logo.png'
         self.rss_feed = 'https://www.braunschweiger-zeitung.de/rss'
-        self.weather_data =  weather_api_data.data()
-        # print(self.weather_data)
+        self.weather_api_key = ''
         self.images = []
-        self.info_board_running = True
+        self.info_board_running = False
         self.current_index = 0
         self.generators = []
     def to_dict(self):
@@ -25,8 +20,8 @@ class Settings:
             'logo': self.logo,
             'rssFeed': self.rss_feed,
             'images': self.images,
-            'info_board_running': self.info_board_running,
-            'weatherData': self.weather_data
+            'info_board_running': self.info_board_running
+            #'weatherApiKey': self.weather_api_key
         }
     def update(self, new_settings):
         self.__dict__.update(new_settings)
