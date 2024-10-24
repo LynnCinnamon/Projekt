@@ -1,5 +1,8 @@
 from flask import Flask, jsonify, request, render_template, redirect, send_from_directory, url_for, flash
 from flask_socketio import SocketIO, emit
+
+from data_sources.open_weather import OpenWeatherDataSource
+from generators.open_weather_generator import OpenWeatherGenerator
 from settings import Settings
 import asyncio
 import os
@@ -11,7 +14,7 @@ socketio = SocketIO(app)
 settings = Settings(socketio)
 #settings.socketio = socketio
 settings.generators = [
-    #WeatherDataSource(settings.weather_api_key),
+    OpenWeatherGenerator(OpenWeatherDataSource("fa46d8f79f8cadb23912b2574fba7a08", 51.35, 11.99)),
 
 ]
 #print(WeatherDataSource(settings.weather_api_key))
@@ -52,11 +55,13 @@ def start_info_board():
     settings.info_board_running = True
     socketio.emit('settingsUpdate', settings.to_dict())
     return jsonify({"status": "started"})
+
 @app.route('/stop', methods=['GET'])
 def stop_info_board():
     settings.info_board_running = False
     socketio.emit('settingsUpdate', settings.to_dict())
     return jsonify({"status": "stopped"})
+
 @socketio.on('connect')
 def handle_connect():
     emit('settingsUpdate', settings.to_dict())
