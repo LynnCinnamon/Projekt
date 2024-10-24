@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <form method="post" action="/settings" enctype="multipart/form-data">
+        <label for="interval">Zeitintervall (Sekunden):</label>
+        <input type="range" id="interval" name="update_interval" min="1" max="60" value="10" oninput="this.nextElementSibling.value = this.value">
+        <output>10</output>
+        <br>
+        <label for="mode">Modus:</label>
+        <select id="mode" name="mode">
+            <option value="sequential">Sequentiell</option>
+            <option value="static">Statisch</option>
+        </select>
+        <br>
+        <label for="logo">Neues Logo hochladen:</label>
+        <input type="file" id="logo" name="logo">
+        <br>
+        <label for="images">Bilder hochladen:</label>
+        <input type="file" id="images" name="images" multiple>
+        <br>
+        <button type="submit">Speichern</button>
+    </form>
+    <button onclick="startInfoBoard()">Start</button>
+    <button onclick="stopInfoBoard()">Stop</button>
+    <script>
+        function startInfoBoard() {
+            fetch('/start')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        }
+        function stopInfoBoard() {
+            fetch('/stop')
+                .then(response => response.json())
+                .then(data => console.log(data));
+        }
+    </script>
+</body>
+</html>
