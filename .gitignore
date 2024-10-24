@@ -1,0 +1,6 @@
+#Ignore cache
+*_cache/
+__pycache__/
+
+#Lynn specific
+.update_times
